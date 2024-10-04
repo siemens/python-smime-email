@@ -1,0 +1,43 @@
+name: Test
+
+# If a pull-request is pushed then cancel all previously running jobs related
+# to that pull-request
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true 
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  PY_COLORS: 1
+
+jobs:
+  unit:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python:
+          - version: "3.10"
+          - version: "3.11"
+          - version: "3.12"
+          - version: '3.13.0-alpha - 3.13' # SemVer's version range syntax
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python.version }}
+        uses: actions/setup-python@v5.2.0
+        with:
+          python-version: ${{ matrix.python.version }}
+      - run: |
+          python3 -m pip install --user -r requirements-poetry.txt
+          sudo apt-get update && sudo apt-get -y install openssl
+          poetry install -n
+          poetry run poe lint
+          poetry run poe test
