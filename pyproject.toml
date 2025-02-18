@@ -9,7 +9,7 @@ packages = [{include = "smime_email"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-cryptography = "^43.0.1"
+cryptography = ">=43.0.1,<45.0.0"
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.29.0"
