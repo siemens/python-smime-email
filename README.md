@@ -34,10 +34,10 @@ Generate x509 SMIME signed emails with ease!
 ## Development
 
 The code is formatted with **ruff** and checked with various linters.
-To run the whole linting and formatting process, run `poetry run poe all`.
+To run the whole linting and formatting process, run `uv run poe all`.
 
 ## License
 
-Code and documentation copyright 2024 Siemens AG.
+Code and documentation copyright 2024-2025 Siemens AG.
 
 See [LICENSE.md](LICENSE.md).
