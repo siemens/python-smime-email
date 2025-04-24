@@ -12,12 +12,8 @@ jobs:
       id-token: write
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
-      with:
-        python-version: "3.12"
-    - name: Install poetry
-      run: python3 -m pip install --user poetry==1.8.3
+    - uses: astral-sh/setup-uv@v5
     - name: Build wheel
-      run: poetry build
+      run: uv build
     - name: Publish package to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
