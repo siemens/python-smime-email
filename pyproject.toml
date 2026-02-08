@@ -10,7 +10,7 @@ dependencies = ["cryptography>=46.0.3,<46.1.0"]
 
 [dependency-groups]
 dev = [
-    "poethepoet>=0.40,<0.41",
+    "poethepoet>=0.41,<0.42",
     "pytest>=9.0.2,<10",
     "mypy>=1.11.2,<2",
     "pytest-deadfixtures>=3,<4",
