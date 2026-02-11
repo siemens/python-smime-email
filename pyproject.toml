@@ -1,9 +1,9 @@
 [project]
 name = "smime-email"
-version = "1.0.1"
+version = "1.0.2"
 description = "A Python library to generate a signed email"
 authors = [{ name = "Siemens" }]
-requires-python = "~=3.10"
+requires-python = ">=3.10, <4"
 readme = "README.md"
 license = "MIT"
 dependencies = ["cryptography>=46.0.3,<46.1.0"]
