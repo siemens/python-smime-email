@@ -1,6 +1,6 @@
 [project]
 name = "smime-email"
-version = "1.0.5"
+version = "1.0.6"
 description = "A Python library to generate a signed email"
 authors = [{ name = "Siemens" }]
 requires-python = ">=3.10, <4"
