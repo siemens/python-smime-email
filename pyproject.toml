@@ -6,7 +6,7 @@ authors = [{ name = "Siemens" }]
 requires-python = ">=3.10, <4"
 readme = "README.md"
 license = "MIT"
-dependencies = ["cryptography>=46.0.3,<46.1.0"]
+dependencies = ["cryptography>=47.0.0,<47.1.0"]
 
 [dependency-groups]
 dev = [
