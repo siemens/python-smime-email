@@ -12,7 +12,7 @@ dependencies = ["cryptography>=48.0.0,<48.1.0"]
 dev = [
     "poethepoet>=0.45,<0.46",
     "pytest>=9.0.3,<10",
-    "mypy>=1.11.2,<2",
+    "mypy>=2,<3",
     "pytest-deadfixtures>=3,<4",
     "coverage>=7.6.1,<8",
     "pytest-cov>=5.0.0",
