@@ -24,14 +24,15 @@ def generate_ca_certificate(
             x509.NameAttribute(x509.NameOID.COMMON_NAME, "Test Root CA"),
         ]
     )
+    now = datetime.datetime.now(datetime.timezone.utc)
     ca_cert = (
         x509.CertificateBuilder()
         .subject_name(ca_name)
         .issuer_name(ca_name)
         .public_key(ca_public_key)
         .serial_number(x509.random_serial_number())
-        .not_valid_before(datetime.datetime.utcnow())
-        .not_valid_after(datetime.datetime.utcnow() + datetime.timedelta(days=365))
+        .not_valid_before(now)
+        .not_valid_after(now + datetime.timedelta(days=365))
         .add_extension(
             x509.BasicConstraints(ca=True, path_length=None),
             critical=True,
@@ -75,14 +76,15 @@ def generate_intermediate_certificate(
             x509.NameAttribute(x509.NameOID.COMMON_NAME, "Test Intermediate CA"),
         ]
     )
+    now = datetime.datetime.now(datetime.timezone.utc)
     intermediate_cert = (
         x509.CertificateBuilder()
         .subject_name(intermediate_name)
         .issuer_name(ca_name)
         .public_key(intermediate_public_key)
         .serial_number(x509.random_serial_number())
-        .not_valid_before(datetime.datetime.utcnow())
-        .not_valid_after(datetime.datetime.utcnow() + datetime.timedelta(days=365))
+        .not_valid_before(now)
+        .not_valid_after(now + datetime.timedelta(days=365))
         .add_extension(
             x509.BasicConstraints(ca=True, path_length=None),
             critical=True,
@@ -130,14 +132,15 @@ def generate_email_certificate(
             x509.NameAttribute(x509.NameOID.EMAIL_ADDRESS, email_address),
         ]
     )
+    now = datetime.datetime.now(datetime.timezone.utc)
     email_cert = (
         x509.CertificateBuilder()
         .subject_name(name)
         .issuer_name(intermediate_name)
         .public_key(email_public_key)
         .serial_number(x509.random_serial_number())
-        .not_valid_before(datetime.datetime.utcnow())
-        .not_valid_after(datetime.datetime.utcnow() + datetime.timedelta(days=365))
+        .not_valid_before(now)
+        .not_valid_after(now + datetime.timedelta(days=365))
         .add_extension(
             x509.BasicConstraints(ca=False, path_length=None),
             critical=True,
