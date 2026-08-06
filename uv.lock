@@ -631,7 +631,7 @@ wheels = [
 
 [[package]]
 name = "smime-email"
-version = "1.0.6"
+version = "1.0.7"
 source = { editable = "." }
 dependencies = [
     { name = "cryptography" },
